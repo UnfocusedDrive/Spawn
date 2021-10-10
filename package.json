@@ -1,0 +1,19 @@
+{
+  "name": "@nurvus/spawn",
+  "version": "0.0.0-alpha.0",
+  "description": "The Spawn Engine is a stateless virtual DOM generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnfocusedDrive/Spawn.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UnfocusedDrive/Spawn/issues"
+  },
+  "homepage": "https://github.com/UnfocusedDrive/Spawn#readme"
+}
