@@ -1,77 +1,5 @@
-// Common Util
-const _ = {
-  // toArr: value =>
-  camel2Kebab: str => str.split('').map(s => s === s.toUpperCase() ? `-${s.toLowerCase()}` : s).join(''),
-  /**
-   * Split input into array of even sized chunks
-   * @param {string|array} input - input to chunk
-   * @param {number} chunkSize - chunk input by every n size
-   * @returns {array} of chunks from source input
-   */
-  splitToChunks: (arr, chunkSize) => {
-    const chunks = [];
-    for (let i = 0; i < arr.length; i+=chunkSize) {
-      chunks.push(arr.slice(i, i + chunkSize));
-    }
-    return chunks;
-  },
-  /**
-   * Split input into array of even sized chunks starting from the last value
-   * @param {string|array} input - input to chunk
-   * @param {number} chunkSize - chunk input by every n size
-   * @returns {array} of chunks from source input
-   */
-  splitToChunksRight: (arr, chunkSize) => {
-    const chunks = [];
-    for (let i = arr.length; i > 0; i-=chunkSize) {
-      // chunks.push(arr.slice(i, i + chunkSize));
-      chunks.unshift(arr.slice(Math.max(0, i - chunkSize), i));
-      // console.log('splitToChunksRight', i - chunkSize, i, arr[i]);
-    }
 
-
-    // console.log('splitToChunksRight', chunks, arr, arr.length, chunkSize);
-
-    return chunks;
-  },
-  getLabel: arr => {
-
-    // NOTE: Not quite there but .... almost....
-    // console.log('getLabel', arr);
-    return 'null';
-    let label = '';
-
-    for (item of arr) {
-      if (item || item > -1) {
-        label = _.toStr(item);
-        break;
-      }
-    }
-
-    return label;
-  },
-  isNode: val => {
-    return typeof val === 'object' ? Boolean(val.nodeType === 1) : false;
-  },
-  /**
-   * Check if value is number
-   * @param {*} value - value to check
-   * @returns {boolean} true if number
-   */
-  isNumber: value => typeof value === 'number',
-  num2Str: val => `${parseInt(val, 10)}`,
-  toPx: num => `${num}px`,
-  toStr: val => `${val}`,
-  trimLeadingZeroes: string => {
-    return string.split('.').map(s => {
-      if (s.length > 1) {
-        const fm = s.replace(/^0+/, '');
-        return fm === '' ? DEFAULT_VALUE : fm;
-      }
-      return s;
-    }).join('.');
-  }
-};
+import _ from './util.js';
 
 /**
  * Spawn DOM (The Document Object Model)
@@ -100,12 +28,6 @@ const _ = {
     ...restProps
   } = props;
 
-
-  // if (props === 'JS Calculator') {
-  //   debugger
-  // }
-
-
   // Text node
   if (typeof props === 'string' || typeof props === 'number') {
     return document.createTextNode(props);
@@ -115,8 +37,10 @@ const _ = {
 
   // console.log('Spawn', props, props instanceof HTMLElement);
 
+  // Element to spawn as
   const el = document.createElement(tag);
 
+  // Children to add to Element
   const appendChildren = (children) => {
     // console.log('appendChildren', children, el);
     // convert to array
@@ -139,24 +63,16 @@ const _ = {
     });
   }
 
-  // if (events) {
-  //   Object.keys(events).forEach(key => {
-  //      el.addEventListener(key, events[key]);
-  //   });
-  // }
-
-  // Attach Style
+  // Attach Style to Element
   if (style) {
     el.setAttribute('style', Object.keys(style).map(key => {
 
-      const trasodky = _.isNumber(style[key]);
-      // console.log('trasodky', trasodky, style[key]);
-      // number default to px
       let value = style[key];
-      if (_.isNumber(value)) {
+      // console.log('style', key, value);
+      // number default to px
+      if (_.isPxImpliedValue(value, key)) {
         value = _.toPx(value);
       }
-      // if
 
       return `${_.camel2Kebab(key)}: ${value};`
     }).join(' '));
@@ -166,12 +82,6 @@ const _ = {
   if (className) {
     el.setAttribute('class', className);
   }
-
-  // const lblNode = _.getLabel([label, name, value]);
-  // if (lblNode) {
-  //   const lbl = document.createTextNode(lblNode);
-  //   el.appendChild(lbl);
-  // }
 
   // .. spread down the rest to html attrs
   Object.keys(restProps).forEach(key => el.setAttribute(key, restProps[key]));
