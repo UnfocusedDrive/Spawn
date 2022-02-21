@@ -74,7 +74,7 @@ import _ from './util.js';
         value = _.toPx(value);
       }
 
-      return `${_.camel2Kebab(key)}: ${value};`
+      return `${_.getStyleName(key)}: ${value};`
     }).join(' '));
   }
 

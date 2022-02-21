@@ -1,6 +1,12 @@
 export default {
-  // toArr: value =>
-  camel2Kebab: str => str.split('').map(s => s === s.toUpperCase() ? `-${s.toLowerCase()}` : s).join(''),
+  /**
+   * Convert camelCase to kebab-case.
+   * @param {string} str - input string
+   * @returns {string} converted to kebab-case.
+   */
+  camel2Kebab(str) {
+    return str.split('').map(s => s === s.toUpperCase() ? `-${s.toLowerCase()}` : s).join('')
+  },
   /**
    * Split input into array of even sized chunks
    * @param {string|array} input - input to chunk
@@ -23,12 +29,9 @@ export default {
   splitToChunksRight: (arr, chunkSize) => {
     const chunks = [];
     for (let i = arr.length; i > 0; i-=chunkSize) {
-      // chunks.push(arr.slice(i, i + chunkSize));
       chunks.unshift(arr.slice(Math.max(0, i - chunkSize), i));
-      // console.log('splitToChunksRight', i - chunkSize, i, arr[i]);
     }
 
-    // console.log('splitToChunksRight', chunks, arr, arr.length, chunkSize);
     return chunks;
   },
   getLabel: arr => {
@@ -46,6 +49,12 @@ export default {
     }
 
     return label;
+  },
+  getStyleName(name) {
+    if (name.charAt(0) === '-') {
+      return name;
+    }
+    return this.camel2Kebab(name);
   },
   isNode: val => {
     return typeof val === 'object' ? Boolean(val.nodeType === 1) : false;

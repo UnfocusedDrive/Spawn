@@ -9,6 +9,12 @@ Spawn({
       style: {
         padding: 20,
         background: 'rgba(255, 0, 0, .5)',
+        backgroundImage: 'repeating-linear-gradient(45deg,violet,indigo,#00f,green,#ff0,orange,red,#d04343,#3d773d,#d0ae0b,#3961ab,#a22ea2)',
+        fontWeight: 'bold',
+        backgroundSize: '314% 314%',
+        '-webkit-background-clip': 'text',
+        '-webkit-text-fill-color': 'transparent',
+        fontSize: '36px',
       }
     })
   ],
