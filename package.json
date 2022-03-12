@@ -1,5 +1,5 @@
 {
-  "name": "@nurvus/spawn",
+  "name": "@unfocused/spawn",
   "version": "0.0.0-alpha.0",
   "description": "The Spawn Engine is a stateless virtual DOM generator.",
   "main": "dist/index.js",

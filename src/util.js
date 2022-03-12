@@ -34,21 +34,9 @@ export default {
 
     return chunks;
   },
+  // REMOVE
   getLabel: arr => {
-
-    // NOTE: Not quite there but .... almost....
-    // console.log('getLabel', arr);
     return 'null';
-    let label = '';
-
-    for (item of arr) {
-      if (item || item > -1) {
-        label = _.toStr(item);
-        break;
-      }
-    }
-
-    return label;
   },
   getStyleName(name) {
     if (name.charAt(0) === '-') {
@@ -66,7 +54,7 @@ export default {
    */
   isNumber: value => typeof value === 'number',
   isPxImpliedValue(value, key) {
-    if (this.isNumber(value) && key !== 'opacity') {
+    if (this.isNumber(value) && (key !== 'opacity' && key !== 'zIndex')) {
       return true;
     }
 

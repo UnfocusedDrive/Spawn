@@ -35,8 +35,6 @@ import _ from './util.js';
   // Already DOM Element
   if (props instanceof HTMLElement) return props;
 
-  // console.log('Spawn', props, props instanceof HTMLElement);
-
   // Element to spawn as
   const el = document.createElement(tag);
 
@@ -66,9 +64,7 @@ import _ from './util.js';
   // Attach Style to Element
   if (style) {
     el.setAttribute('style', Object.keys(style).map(key => {
-
       let value = style[key];
-      // console.log('style', key, value);
       // number default to px
       if (_.isPxImpliedValue(value, key)) {
         value = _.toPx(value);
