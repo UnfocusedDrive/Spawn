@@ -20,7 +20,7 @@ Spawn({
       }
     }),
     // Testing....
-    // new RespawnTest().el
+    new RespawnTest().el
   ],
   style: {
     display: 'flex',

@@ -1,5 +1,5 @@
-
 import _ from './util.js';
+import Mount from './Mount.js';
 
 /**
  * Spawn DOM (The Document Object Model)
@@ -48,17 +48,14 @@ import _ from './util.js';
 
   // Children to add to Element
   const appendChildren = (children) => {
-    // console.log('appendChildren', children, el);
     // convert to array
     let fmChildren = children;
     if (!Array.isArray(fmChildren)) {
       fmChildren = [fmChildren];
     }
 
-    // each child...
-    fmChildren.forEach(child => {
-      el.appendChild(Spawn(child));
-    });
+    // Mount each child
+    fmChildren.forEach(child => Mount(el, Spawn(child)));
   }
 
   // Attach Event Listeners
@@ -94,11 +91,10 @@ import _ from './util.js';
 
   // Append to parent
   if (parentEl) {
-    parentEl.appendChild(el);
+    Mount(parentEl, el);
   }
 
   return el;
 };
 
-export const test = 'test-export';
 export default Spawn;
