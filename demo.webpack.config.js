@@ -23,6 +23,11 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      '@unfocused/Spawn': path.resolve(__dirname, './src/index.js')
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Warp Gate',

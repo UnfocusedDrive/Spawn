@@ -1,4 +1,5 @@
-import Spawn from '../src/index';
+import Spawn, { Respawn } from '@unfocused/Spawn';
+import RespawnTest from './respawn';
 
 const mountEl = document.body;
 Spawn({
@@ -17,7 +18,9 @@ Spawn({
         fontSize: '36px',
         zIndex: 1
       }
-    })
+    }),
+    // Testing....
+    // new RespawnTest().el
   ],
   style: {
     display: 'flex',
