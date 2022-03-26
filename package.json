@@ -7,7 +7,8 @@
   "scripts": {
     "build": "webpack --mode=production",
     "prepare": "npm run build",
-    "demo": "webpack serve --mode=development --open --config demo.webpack.config.js",
+    "demo": "webpack serve --mode=development --open --config demo/demo.webpack.config.js",
+    "playground": "webpack serve --mode=development --open --config playground/playground.webpack.config.js",
     "start": "webpack serve --mode=development --open",
     "start:production": "webpack serve --mode=production --open",
     "watch": "webpack --watch"

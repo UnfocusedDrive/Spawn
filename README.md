@@ -6,17 +6,13 @@
 2. Import module in your app e.g.
 
 ```js
-import Spawn from '@nurvus/spawn';
+import Spawn, { Mount } from '@unfocused/spawn';
 
-const mountEl = document.body;
-Spawn({
-  parentEl: mountEl,
-  children: [
-    'Your Spawn is ready.'
-  ]
-});
+const el = Spawn('Your Spawn is ready.');
+Mount(document.body, el);
 ```
 
 ## Contribute
 1. `npm install` Install
-2. `npm run demo` Test
+2. `npm run demo` Demo
+3. `npm run playground` Inspiration

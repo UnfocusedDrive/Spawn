@@ -8,7 +8,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
-  entry: './demo/index.js',
+  entry: './playground/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -25,12 +25,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@unfocused/Spawn': path.resolve(__dirname, './src/index.js')
+      '@unfocused/spawn': path.resolve(__dirname, '../src/index.js')
     }
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Warp Gate',
+      title: 'Welcome to the Spawn ENGINE',
     })
   ]
 };

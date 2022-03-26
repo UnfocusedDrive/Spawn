@@ -1,6 +1,9 @@
-import Spawn, { Mount } from '@unfocused/spawn';
+import Spawn, { Respawn } from '@unfocused/spawn';
+import RespawnTest from './respawn';
 
-const el = Spawn({
+const mountEl = document.body;
+Spawn({
+  parentEl: mountEl,
   children: [
     Spawn({
       children: 'Your Spawn is ready.',
@@ -16,6 +19,8 @@ const el = Spawn({
         zIndex: 1
       }
     }),
+    // Testing....
+    new RespawnTest().el
   ],
   style: {
     display: 'flex',
@@ -30,5 +35,3 @@ const el = Spawn({
     color: '#ffffff'
   }
 });
-
-Mount(document.body, el);
