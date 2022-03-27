@@ -46,8 +46,15 @@ import Mount from './Mount.js';
   // Element to spawn as
   const el = document.createElement(tag);
 
-  // Children to add to Element
+  /**
+   *  Children to add to Element
+   * @param {*} children - function(el) / array / element / string
+   */
   const appendChildren = (children) => {
+    if (children instanceof Function) {
+      children(el);
+    }
+
     // convert to array
     let fmChildren = children;
     if (!Array.isArray(fmChildren)) {

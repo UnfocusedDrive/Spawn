@@ -1,5 +1,6 @@
 import Spawn, { Respawn } from '@unfocused/spawn';
 import RespawnTest from './respawn';
+import InnerHTML from './childrenAsFn';
 
 const mountEl = document.body;
 Spawn({
@@ -20,7 +21,8 @@ Spawn({
       }
     }),
     // Testing....
-    new RespawnTest().el
+    new RespawnTest().el,
+    InnerHTML()
   ],
   style: {
     display: 'flex',
