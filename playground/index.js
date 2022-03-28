@@ -1,9 +1,13 @@
-import Spawn, { Respawn } from '@unfocused/spawn';
+import Spawn from '@unfocused/spawn';
 import RespawnTest from './respawn';
 import InnerHTML from './childrenAsFn';
+import RandomDOMTree from './RandomDOMTree';
+
+
 
 const mountEl = document.body;
 Spawn({
+  className: 'playground',
   parentEl: mountEl,
   children: [
     Spawn({
@@ -20,19 +24,19 @@ Spawn({
         zIndex: 1
       }
     }),
-    // Testing....
     new RespawnTest().el,
-    InnerHTML()
+    InnerHTML(),
+    RandomDOMTree()()
   ],
   style: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // right: 0,
+    // bottom: 0,
     background: '#222222',
     color: '#ffffff'
   }
