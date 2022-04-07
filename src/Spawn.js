@@ -1,11 +1,12 @@
-import _ from './util.js';
+// import _ from './util.js';
+import _ from '@unfocused/treasure-goblin';
 import Mount from './Mount.js';
 
 /**
  * Spawn DOM (The Document Object Model)
  * The Spawn Engine is a stateless virtual DOM generator.
  * @param {object|string} props - props of the Spawn
- * @param {element} props.parentEl - parent element to spawn into
+ * @param {element} [props.mountEl] - Host Element to attach the Spawn.
  * @returns {element} reference of your Spawn
  */
  const Spawn = (props = {}) => {
@@ -23,7 +24,7 @@ import Mount from './Mount.js';
      * @param {element}
      * If provided, will mount to the parent
      */
-    parentEl,
+    mountEl,
     name,
     label,
     style,
@@ -97,8 +98,8 @@ import Mount from './Mount.js';
   appendChildren(children);
 
   // Append to parent
-  if (parentEl) {
-    Mount(parentEl, el);
+  if (mountEl) {
+    Mount(mountEl, el);
   }
 
   return el;

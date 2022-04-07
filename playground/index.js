@@ -3,12 +3,11 @@ import RespawnTest from './respawn';
 import InnerHTML from './childrenAsFn';
 import RandomDOMTree from './RandomDOMTree';
 
-
-
 const mountEl = document.body;
+
 Spawn({
   className: 'playground',
-  parentEl: mountEl,
+  mountEl,
   children: [
     Spawn({
       children: 'Your Spawn is ready.',

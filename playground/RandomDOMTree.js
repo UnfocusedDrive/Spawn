@@ -63,7 +63,7 @@ export default function RandomDOMTree() {
 
     setTimeout(() => {
       const nextOfNextEl = Respawn(el, Spawn({
-        children: generateTree(10)
+        children: generateTree(getRandom(1, 15))
       }));
 
       respawner(nextOfNextEl);

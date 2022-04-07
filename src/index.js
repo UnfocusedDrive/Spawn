@@ -1,7 +1,6 @@
 /**
  * SPAWN Engine
  */
-import _ from './util.js';
 import Mount from './Mount.js';
 import Unmount from './Unmount.js';
 import Spawn from './Spawn.js';
