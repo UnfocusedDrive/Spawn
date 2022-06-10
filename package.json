@@ -1,6 +1,6 @@
 {
   "name": "@unfocused/spawn",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The Spawn Engine is a stateless virtual DOM generator.",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@unfocused/treasure-goblin": "git+https://github.com/UnfocusedDrive/treasure-goblin.git#master"
+    "@unfocused/treasure-goblin": "0.1.0-alpha.0"
   },
   "devDependencies": {
     "acorn": "^8.7.0",
